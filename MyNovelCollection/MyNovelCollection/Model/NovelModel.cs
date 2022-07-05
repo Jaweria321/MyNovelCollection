@@ -10,12 +10,15 @@ namespace MyNovelCollection.Model
         public string Author { get; set; }
         public string Thumb { get; set; }
 
-        public NovelModel(string title, string description, string author, string thumb)
+        public string Location { get; set; }
+
+        public NovelModel(string title, string description, string author, string thumb, string location)
         {
             Title = title;
             Description = description;
             Author = author;
             Thumb = thumb;
+            Location = location;
         }
     }
 
