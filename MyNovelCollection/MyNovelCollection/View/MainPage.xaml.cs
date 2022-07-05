@@ -1,4 +1,5 @@
-﻿using MyNovelCollection.Model;
+﻿using Acr.UserDialogs;
+using MyNovelCollection.Model;
 using MyNovelCollection.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,19 @@ namespace MyNovelCollection
             {
                 nvm.SelectedNovel = (NovelModel)e.SelectedItem;
                 DisplayAlert(nvm.SelectedNovel.Title, nvm.SelectedNovel.Description, "ok");
+            }
+        }
+
+        private async void btnName_Clicked(object sender, EventArgs e)
+        {
+            PromptConfig pc = new PromptConfig();
+            pc.Title = "Collection Name";
+            pc.Message = "Choose a Collection Name";
+            var result = await UserDialogs.Instance.PromptAsync(pc);
+
+            if (result.Ok && result.Text != string.Empty)
+            {
+                nvm.CollectionName = result.Text;
             }
         }
     }
