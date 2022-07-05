@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="Crimson"
+             Title="Novel Collection"
+             x:Class="MyNovelCollection.MainPage">
+
+    <StackLayout>
+        <Label x:Name="lblcollection" 
+               Text="{Binding CollectionName}"
+               HorizontalOptions="Center"
+               FontSize="Medium"
+               TextColor="White"
+               Margin="10"/>
+
+
+        <ListView x:Name="Novellistview">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView>
+                            <StackLayout VerticalOptions="Center" BackgroundColor="White" Margin="2">
+                                <Label Text="{Binding Title}" TextColor="Black" VerticalOptions="Center"/>
+                                <Label Text="{Binding Author}" TextColor="Black" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
