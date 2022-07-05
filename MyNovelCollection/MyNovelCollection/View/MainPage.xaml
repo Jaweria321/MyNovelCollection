@@ -14,7 +14,7 @@
                Margin="10"/>
 
 
-        <ListView x:Name="Novellistview">
+        <ListView x:Name="Novellistview"  ItemSelected="Novellistview_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

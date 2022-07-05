@@ -1,4 +1,5 @@
-﻿using MyNovelCollection.ViewModel;
+﻿using MyNovelCollection.Model;
+using MyNovelCollection.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,15 @@ namespace MyNovelCollection
             base.OnAppearing();
             await nvm.GetNovels(); 
             Novellistview.ItemsSource = nvm.NovelList;
+        }
+
+        private void Novellistview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                nvm.SelectedNovel = (NovelModel)e.SelectedItem;
+                DisplayAlert(nvm.SelectedNovel.Title, nvm.SelectedNovel.Description, "ok");
+            }
         }
     }
 }
