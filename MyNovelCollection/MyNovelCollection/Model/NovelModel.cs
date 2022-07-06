@@ -3,7 +3,7 @@ using System.Text;
 
 namespace MyNovelCollection.Model
 {
-    class NovelModel
+    public class NovelModel
     {
         public string Title { get; set; }
         public string Description { get; set; }

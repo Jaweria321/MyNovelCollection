@@ -14,28 +14,28 @@
                Margin="10"/>
 
 
-        <ListView x:Name="Novellistview"  ItemSelected="Novellistview_ItemSelected">
+        <ListView x:Name="Novellistview"  ItemSelected="Novellistview_ItemSelected" RowHeight="10" HasUnevenRows="True"> 
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ContentView>
 
-                            <Grid>
+                            <Grid BackgroundColor="White"  Margin="2">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100"  />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="75" />
+                                    <ColumnDefinition Width="0.3*"  />
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.2*" />
                                 </Grid.ColumnDefinitions>
 
 
                                 <StackLayout Grid.Column="0" VerticalOptions="Center">
-                                    <Image Source="{Binding Thumb}" WidthRequest="100" Aspect="AspectFit" HorizontalOptions="Start"/>
+                                    <Image Source="{Binding Thumb}" Aspect="Fill"  HeightRequest="150"  HorizontalOptions="Start"/>
                                 </StackLayout>
-                                <StackLayout  Grid.Column="1" VerticalOptions="Center" BackgroundColor="White" Margin="2">
-                                    <Label Text="{Binding Title}" TextColor="Black" VerticalOptions="Center"/>
-                                    <Label Text="{Binding Author}" TextColor="Black" VerticalOptions="Center"/>
+                                <StackLayout  Grid.Column="1" VerticalOptions="Center" BackgroundColor="White" Padding="5">
+                                    <Label Text="{Binding Title}" TextColor="Black" FontSize="Large" VerticalOptions="Center" />
+                                    <Label Text="{Binding Author}" TextColor="Black" FontSize="Medium" VerticalOptions="Center"/>
                                 </StackLayout>
-                                <StackLayout  Grid.Column="2" VerticalOptions="Center">
+                                <StackLayout  Grid.Column="2">
                                     <Label Text="{Binding Location}" TextColor="Black" VerticalOptions="Center"/>
                                 </StackLayout>
                             </Grid>

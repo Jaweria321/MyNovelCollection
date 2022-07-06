@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyNovelCollection.View.NovelInfoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Enter Novel Information" />
+            <Image BindingContext="{x:Reference EntryThumb}" Source ="{Binding Path=Text}" />
+            <Entry x:Name="EntryTitle"
+                   Text="{Binding Title}"
+                   Placeholder="Title"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White" />
+            <Entry x:Name="EntryAuthor"
+                   Text="{Binding Author}"
+                   Placeholder="Author"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White" />
+            <Entry x:Name="EntryThumb"
+                   Text="{Binding Thumb}"
+                   Placeholder="Thumb"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White" />
+            <Entry x:Name="EntryLocation"
+                   Text="{Binding Location}"
+                   Placeholder="Location"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
+                   BackgroundColor="White" />
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

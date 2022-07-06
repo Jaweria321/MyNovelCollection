@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyNovelCollection.ViewModel
 {
-    class NovelViewModel : INotifyPropertyChanged
+    public class NovelViewModel : INotifyPropertyChanged
     {
         private string _CollectionName;
 
@@ -35,7 +35,6 @@ namespace MyNovelCollection.ViewModel
             {
                 NovelList = new List<NovelModel>();
                 NovelList.Add(new NovelModel("Pir-e-Kamil", "Pir-e-Kamil or Peer-e-Kamil is a novel written by Pakistani writer Umera Ahmad. It was first published in Urdu in 2004 and later in English in 2011. The book deals with the turning points in intervening lives of two people: a runaway girl named Imama Hashim; and a boy named Salar Sikander with an IQ of more than 150.", "Umera Ahmad", "Pir_e_Kamil.jpg", "Box1"));
-                // above 2 lines of code are equal to below one line
                 NovelList.Add(new NovelModel("Mushaf", "A novel about a helpless orphan girl who discovers the real meaning of the holy Quran which helps her cope with the vagaries of her miserable life.", "Nemrah Ahmed", "Mushaf.jpg","Box 3"));
                 NovelList.Add(new NovelModel("Ishq Ka Sheen", "Its a long story which goes from materialistic world love to true love with Almighty God. It took author more than 13 years to write and goes on. Six parts have been published so far and seventh is on the way.", "Aleem Ul Haq Haqqi", "Ishq_Ka_Sheen.jpg", "Box 3"));
                 NovelList.Add(new NovelModel("Mata-e-Jaan Hai Tu", "Mata-e-Jaan Hai Tu is a social romantic novel written by a female Pakistani author Farhat Ishtiaq. It is an Urdu language novel about the love story of a young couple.", "Farhat Ishtiaq", "Mata_e_Jaan_Hai_Tu.jpg","Box2"));
