@@ -50,18 +50,16 @@ namespace MyNovelCollection
 
         private async void btnName_Clicked(object sender, EventArgs e)
         {
-            //PromptConfig pc = new PromptConfig();
+            
 
-            //pc.Title = "Collection Name";
-            //pc.Message = "Choose a Collection Name";
-            //var result = await UserDialogs.Instance.PromptAsync(pc);
+            // Display a prompt https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/pop-ups
 
-            //if (result.Ok && result.Text != string.Empty)
-            //{
-            //    nvm.CollectionName = result.Text;
-            //}
-            var result = await DisplayAlert("Traditional alert", "Traditional message?", "OK", "Cancel");
-            //TraditionalPromptLabel.Text = string.Format("Result {0}", result);
+            string result = await DisplayPromptAsync("Collection Name", "Choose a Collection Name:");
+
+            if (result != null)
+            {
+                nvm.CollectionName = result;
+            }
 
         }
     }
