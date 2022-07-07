@@ -27,8 +27,15 @@ namespace MyNovelCollection
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            await RefreshListView();
+        }
+
+        public async Task<bool> RefreshListView()
+        {
+            Novellistview.ItemsSource = null;
             await nvm.GetNovels();
             Novellistview.ItemsSource = nvm.NovelList;
+            return true;
         }
 
         private async void Novellistview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -38,7 +45,7 @@ namespace MyNovelCollection
             {
                 nvm.SelectedNovel = (NovelModel)e.SelectedItem;
                 // DisplayAlert(nvm.SelectedNovel.Title, nvm.SelectedNovel.Description,  "ok");
-                await Navigation.PushModalAsync(new NovelInfoPage(nvm));
+                await Navigation.PushModalAsync(new NovelInfoPage(nvm, false));
 
 
                 // Issue: Same listview item not getting selected after pressing back
@@ -60,6 +67,12 @@ namespace MyNovelCollection
             {
                 nvm.CollectionName = result;
             }
+
+        }
+
+        private async void btnAdd_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NovelInfoPage(nvm, true));
 
         }
     }

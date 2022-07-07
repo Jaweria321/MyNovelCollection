@@ -16,16 +16,53 @@ namespace MyNovelCollection.View
     {
         NovelViewModel nvm;
         NovelModel nvl;
-        
+        bool isNew;
 
-        public NovelInfoPage(NovelViewModel _nvm)
+        public NovelInfoPage(NovelViewModel _nvm, bool _isNew)
         {
             InitializeComponent();
 
-           nvm = _nvm;
-           nvl = nvm.SelectedNovel;
+            nvm = _nvm;
+            isNew = _isNew;
+            nvl = new NovelModel("", "", "", "", "");
+            if(isNew)
+            {
 
-           BindingContext = nvl;
+            }
+            else
+            {
+                nvl.Title = nvm.SelectedNovel.Title;
+                nvl.Author = nvm.SelectedNovel.Author;
+                nvl.Thumb = nvm.SelectedNovel.Thumb;
+                nvl.Location = nvm.SelectedNovel.Location;
+                nvl.Description = nvm.SelectedNovel.Description;
+
+            }
+
+            BindingContext = nvl;
+            
+        }
+
+        private async void btnCancel_Clicked(object sender, EventArgs e)
+        {
+            //Asynchronously dismisses the most recent modally presented Page.
+            await Navigation.PopModalAsync();
+        }
+
+        private async void btnOk_Clicked(object sender, EventArgs e)
+        {
+
+            if (isNew)
+            {
+                nvm.InsertNovel(nvl);
+            }
+            else
+            {
+                nvm.UpdateNovel(nvl);
+            }
+            
+            //Asynchronously dismisses the most recent modally presented Page.
+            await Navigation.PopModalAsync();
 
         }
     }

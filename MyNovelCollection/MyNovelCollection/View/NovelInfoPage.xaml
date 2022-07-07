@@ -3,37 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyNovelCollection.View.NovelInfoPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Enter Novel Information" />
-            <Image BindingContext="{x:Reference EntryThumb}" Source ="{Binding Path=Text}" />
-            <Entry x:Name="EntryTitle"
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="Enter Novel Information" HorizontalOptions="Center" FontSize="Large" />
+                    <Image BindingContext="{x:Reference EntryThumb}" Source ="{Binding Path=Text}" WidthRequest="300" HeightRequest="300" />
+                    <Entry x:Name="EntryTitle"
                    Text="{Binding Title}"
                    Placeholder="Title"
                    TextColor="Black"
                    PlaceholderColor="Gray"
-                   BackgroundColor="White" />
-            <Entry x:Name="EntryAuthor"
+                   BackgroundColor="White" 
+                   ClearButtonVisibility="WhileEditing"/>
+                    
+                   <Entry x:Name="EntryAuthor"
                    Text="{Binding Author}"
                    Placeholder="Author"
                    TextColor="Black"
                    PlaceholderColor="Gray"
-                   BackgroundColor="White" />
-            <Entry x:Name="EntryThumb"
+                   BackgroundColor="White" 
+                   ClearButtonVisibility="WhileEditing" />
+                   <Entry x:Name="EntryThumb"
                    Text="{Binding Thumb}"
                    Placeholder="Thumb"
                    TextColor="Black"
                    PlaceholderColor="Gray"
-                   BackgroundColor="White" />
-            <Entry x:Name="EntryLocation"
+                   BackgroundColor="White" 
+                   ClearButtonVisibility="WhileEditing" />
+                    <Entry x:Name="EntryLocation"
                    Text="{Binding Location}"
                    Placeholder="Location"
                    TextColor="Black"
                    PlaceholderColor="Gray"
+                   BackgroundColor="White"
+                   ClearButtonVisibility="WhileEditing" />
+                    <Editor x:Name="EditorDescription"
+                   Text="{Binding Description}"
+                   Placeholder="Discription"
+                   TextColor="Black"
+                   PlaceholderColor="Gray"
                    BackgroundColor="White" />
-
-
-
-
-        </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="20, 0, 20,0">
+                    <Button x:Name="btnCancel"
+                        Text="Cancel"
+                        HeightRequest="40"
+                        BorderRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="White"
+                        FontSize="14"
+                        TextColor="Black"
+                        Clicked="btnCancel_Clicked" />
+                    <Button x:Name="btnOk"
+                        Text="Ok"
+                        HeightRequest="40"
+                        BorderRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="White"
+                        FontSize="14"
+                        TextColor="Black"
+                        Clicked="btnOk_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

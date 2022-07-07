@@ -47,7 +47,23 @@ namespace MyNovelCollection.ViewModel
         }
         
 
+        public bool UpdateNovel(NovelModel nvl)
+        {
+            SelectedNovel.Title = nvl.Title;
+            SelectedNovel.Author = nvl.Author;
+            SelectedNovel.Thumb = nvl.Thumb;
+            SelectedNovel.Location = nvl.Location;
+            SelectedNovel.Description = nvl.Description;
 
+            return true;
+        }
+
+        public bool InsertNovel(NovelModel nvl)
+        {
+            NovelList.Add(nvl);
+
+            return true;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
