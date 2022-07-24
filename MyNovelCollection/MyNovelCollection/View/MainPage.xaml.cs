@@ -75,5 +75,29 @@ namespace MyNovelCollection
             await Navigation.PushModalAsync(new NovelInfoPage(nvm, true));
 
         }
+
+        private async void OnDelteClicked(object sender, EventArgs e)
+        {
+            MenuItem mi = (MenuItem)sender;
+            NovelModel nvl = (NovelModel)mi.CommandParameter;
+            bool result = await DisplayAlert("Delete Novel?", nvl.Title, "Yes", "No");
+            if(result == true)
+            {
+                nvm.DeleteNovel(nvl);
+                await RefreshListView();
+            }
+        }
+
+        private void srcBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(string.IsNullOrEmpty(e.NewTextValue))
+            {
+                Novellistview.ItemsSource = nvm.NovelList;
+            }
+            else
+            {
+                Novellistview.ItemsSource = nvm.NovelList.Where(x => x.Title.ToLower().Contains(e.NewTextValue.ToLower()));    
+            }
+        }
     }
 }

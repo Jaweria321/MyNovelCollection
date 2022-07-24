@@ -65,6 +65,12 @@ namespace MyNovelCollection.ViewModel
             return true;
         }
 
+        public bool DeleteNovel(NovelModel nvl)
+        {
+            NovelList.Remove(nvl);
+            return true;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged(string prop)
