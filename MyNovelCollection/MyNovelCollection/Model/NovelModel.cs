@@ -20,6 +20,9 @@ namespace MyNovelCollection.Model
             Thumb = thumb;
             Location = location;
         }
+
+        public NovelModel()
+        { }
     }
 
    

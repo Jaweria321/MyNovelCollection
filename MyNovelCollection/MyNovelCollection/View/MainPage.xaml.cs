@@ -83,7 +83,7 @@ namespace MyNovelCollection
             bool result = await DisplayAlert("Delete Novel?", nvl.Title, "Yes", "No");
             if(result == true)
             {
-                nvm.DeleteNovel(nvl);
+                await nvm.DeleteNovel(nvl);
                 await RefreshListView();
             }
         }

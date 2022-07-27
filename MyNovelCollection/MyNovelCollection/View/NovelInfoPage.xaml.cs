@@ -54,11 +54,11 @@ namespace MyNovelCollection.View
 
             if (isNew)
             {
-                nvm.InsertNovel(nvl);
+                await nvm.InsertNovel(nvl);
             }
             else
             {
-                nvm.UpdateNovel(nvl);
+                await nvm.UpdateNovel(nvl);
             }
             
             //Asynchronously dismisses the most recent modally presented Page.
